@@ -14,9 +14,9 @@ my $content = Net::Curl::Easy.new(:$url).download;
 my @lines = $content.split("\n").grep(/$me/);
 
 for @lines -> $line {
-    my $frag = $line.split("/").[4];
-    my $repo = "https://github.com/{$me}/{$frag}.git";
-    DEBUG and say $repo;
-    shell "git clone $repo";
+    my $dir = $line.split("/").[4];
+    my $repo = "https://github.com/{$me}/{$dir}.git";
+    shell "git clone $repo" unless $dir.IO.e;
+    shell "cd $dir && panda install . && cd ..";
 }
 
