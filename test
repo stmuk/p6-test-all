@@ -1,7 +1,7 @@
 #!/usr/bin/env perl6
 use v6;
-use Net::Curl::Easy;
-#use File::Directory::Tree;
+use LWP::Simple;
+use IO::Socket::SSL;
 
 constant DEBUG = %*ENV<DEBUG>;
 
@@ -9,7 +9,7 @@ my $me = "stmuk";
 
 my $url = "https://raw.githubusercontent.com/perl6/ecosystem/master/META.list";
 
-my $content = Net::Curl::Easy.new(:$url).download;
+my $content = LWP::Simple.get($url);
 
 my @lines = $content.split("\n").grep(/$me/);
 
