@@ -1,0 +1,6 @@
+#!/usr/bin/env perl
+use v5.10.0;
+use File::Slurp;
+use Markdown::To::POD 'markdown_to_pod';
+my $text = read_file($ARGV[0]);
+say markdown_to_pod($text);
