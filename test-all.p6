@@ -17,6 +17,6 @@ for @lines -> $line {
     my $dir = $line.split("/").[4];
     my $repo = "https://github.com/{$me}/{$dir}.git";
     shell "git clone $repo" unless $dir.IO.e;
-    shell "cd $dir && panda --force install . && cd ..";
+#    shell "cd $dir && panda --force install . && cd ..";
 }
 

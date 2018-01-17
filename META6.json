@@ -1,0 +1,10 @@
+{
+    "perl"        : "6.c",
+    "name"        : "p6-test-all",
+    "license"     : "Artistic-2.0",
+    "version"     : "0.2",
+    "description" : "Test all my ecosystem modules",
+    "authors"      : ["Steve Mynott <steve.mynott@gmail.com>"],
+    "depends"     : ["LWP::Simple","IO::Socket::SSL"],
+    "source-url"  : "git@github.com:stmuk/p6-test-all.git"
+}
